@@ -1,0 +1,7 @@
+﻿@{ ViewData["Title"] = "Home- PickABook.com"; } @*Goes on the browser tab title*@
+
+<div class="text-center">
+    <h1 class="display-4" style="font-family:cursive; color:#fefae0">PickABook.com</h1>
+    <img src="~/images/bookbg.jpg" height="300" width="90%" alt="image" /> @*to add home background image*@
+    @await Html.PartialAsync("_AboutOrganization") @*To add company info partial view*@
+</div>

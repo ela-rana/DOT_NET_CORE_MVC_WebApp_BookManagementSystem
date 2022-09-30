@@ -1,0 +1,39 @@
+﻿@model BookManagementSystem.Models.BookViewModel
+
+@{
+    ViewData["Title"] = "AllBooks";
+}
+
+<h1>AllBooks</h1>
+
+<p>
+    <a asp-controller="Book" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*display Title as column heading*@
+                @Html.DisplayNameFor(model=>model.Books.First().Title)
+            </th>
+            <th>
+                @*display Author as column heading*@
+                @Html.DisplayNameFor(model=>model.Books.First().Author)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Books) {
+        <tr>
+          
+                <td>@Html.DisplayFor(modelitem=>item.Title)</td>
+                <td>@Html.DisplayFor(modelitem=>item.Author)</td>
+                <td>
+                    <a asp-controller="Book" asp-action="Details" asp-route-ISBN="@item.ISBN">Details</a>
+                    <a asp-controller="Book" asp-action="Edit"    asp-route-ISBN="@item.ISBN">Edit</a>
+                    <a asp-controller="Book" asp-action="Delete"  asp-route-ISBN="@item.ISBN">Delete</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
